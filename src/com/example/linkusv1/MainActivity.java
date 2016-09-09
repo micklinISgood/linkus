@@ -1,0 +1,268 @@
+package com.example.linkusv1;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.facebook.FacebookRequestError;
+import com.facebook.HttpMethod;
+import com.facebook.Request;
+import com.facebook.RequestAsyncTask;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.UiLifecycleHelper;
+import com.facebook.model.GraphUser;
+import com.facebook.widget.LoginButton;
+
+public class MainActivity extends Activity {
+	//UiLifecycleHelper initialize
+	private UiLifecycleHelper uiHelper;
+	private SharedPreferences linkusdata;
+	private Context mContext;
+	private static final List<String> PERMISSIONS = Arrays.asList("publish_actions");
+	private static final String PENDING_PUBLISH_KEY = "pendingPublishReauthorization";
+	private boolean pendingPublishReauthorization = false;
+	//facebook login callback setting and onComplete function
+    private Session.StatusCallback callback = 
+		new Session.StatusCallback() {
+				
+				@Override
+				public void call(Session session, SessionState state, Exception exception) {
+					onSessionStateChange(session,state,exception);
+				}
+			};
+	private void onSessionStateChange(Session session, SessionState state,Exception e){
+		 if(state.isOpened()){
+				  makeMeRequest(session);}
+				 
+			}
+
+	private BroadcastReceiver _refreshReceiver = new BroadcastReceiver(){
+		  
+		  @Override public void onReceive(Context context, Intent intent) {
+		 // stopService(new Intent(mContext,PhotoService.class));
+		  //startActivity(new Intent(mContext, near0.class));
+			  finish();
+		 // Log.e("receiver", "closed by broadcast");
+		
+		  } };
+		 		
+	
+	//permissions
+	private String[] perm = {"user_activities","user_birthday","user_education_history","user_events","user_location"
+			,"user_interests","user_photos","user_work_history","email","user_likes","user_status","read_requests"}; 
+	private List<String> perms = Arrays.asList(perm);
+	
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        this.mContext = getApplicationContext();
+        uiHelper = new UiLifecycleHelper(this,callback);
+        IntentFilter filter = new IntentFilter("upload");
+		 this.registerReceiver(_refreshReceiver, filter);
+        //______________________________________________
+        //insert loading fragment here for login waiting
+        //add dialogue for checking internet connection
+        //______________________________________________
+        
+ 
+        //read permissions with login button
+       
+        LoginButton button = (LoginButton) findViewById(R.id.login_button);
+		button.setReadPermissions(perms);
+    	  //Start session to communicate with facebook 
+        Session session = Session.getActiveSession();
+	    if (session != null && session.isOpened()) {
+	       //  Get the user's data
+	        makeMeRequest(session);
+	    } 
+      Log.e("check","0");
+     
+    }
+    
+    @Override
+    public void onStart(){
+    	super.onStart();
+    	
+    	//Log.e("check","1");
+    	ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isConnected()) {
+    	Session session = Session.getActiveSession();
+        //when in login state without button
+    	if(session != null && session.isOpened()) {
+        	//Log.e("check","session");
+        	LoginButton button = (LoginButton) findViewById(R.id.login_button);
+        	button.setVisibility(View.INVISIBLE);
+        	
+        	Toast.makeText(this, "High Five", Toast.LENGTH_SHORT).show();
+          }
+    	//when in logout state with button
+        else{
+        	setContentView(R.layout.activity_main);
+        	LoginButton button = (LoginButton) findViewById(R.id.login_button);
+     		button.setReadPermissions(perms);
+     		//button.setLoginBehavior(SessionLoginBehavior.SUPPRESS_SSO);
+        }
+		}
+		else {
+			setContentView(R.layout.wifi);
+			ImageView imageButton = (ImageView) findViewById(R.id.wifi);
+			Toast.makeText(mContext,
+					"WiFi____WiFi", Toast.LENGTH_LONG).show();
+			imageButton.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				setContentView(R.layout.splash);
+				startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));
+			}
+			});
+		}
+
+    	}
+  
+   
+    private void makeMeRequest(final Session session) {
+	    // Make an API call to get user data and define a 
+	    // new callback to handle the response.
+    	
+	    Request request = Request.newMeRequest(session, 
+	            new Request.GraphUserCallback() {
+	        @Override
+	        public void onCompleted(GraphUser user, Response response) {
+	            // If the response is successful
+	            if (session == Session.getActiveSession()) {
+	                if (user != null) {
+	                	//change view to indicate already login
+	                	//LoginButton button = (LoginButton) findViewById(R.id.login_button);
+	                	//button.setEnabled(false);
+	                	//Save User data to Sharedprefrence
+	                	
+	                	
+	                	JSONObject linkus = new JSONObject();
+	                	try {
+							linkus.put("linkusId",user.getId());
+							linkus.put("bday",user.getBirthday());
+							linkus.put("link",user.getLink());
+							//linkus.put("gender",user.getInnerJSONObject().getString("gender"));
+						
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+	             
+	                	
+	                	linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+	                	if(linkusdata.getString("Id", "").length()>0){
+	                		linkusdata.edit().clear().commit();
+		                }
+	                	
+	                	Editor editor = linkusdata.edit();
+	                	editor.putString("Id",user.getId());
+	                	editor.putString("token",session.getAccessToken());
+                        editor.putString("access_expires",session.getExpirationDate().toString());
+                        editor.putString("userJson",user.getInnerJSONObject().toString());
+                        editor.commit();
+	                	/*
+                        ImageView imageButton = (ImageView) findViewById(R.id.search);
+                		imageButton.setOnClickListener(new View.OnClickListener() {
+                		@Override
+                		public void onClick(View v) {
+                			Log.e("click", "time");
+                			publishStory(); 
+                		}
+                		});*/
+	                   
+	                    //Start upload 
+                        
+                		new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
+                		
+                		//close Activity,other activity must implement Onpause()
+                		//Once logout clear all sharedpreference,Start this Activity!
+                		//finish();
+	                }
+	                
+	            }
+	              if (response.getError() != null) {
+	            	 
+	                // Handle errors, will do so later.
+	            }
+	        }
+	    });
+	    Request.executeBatchAsync(request);
+	   
+	} 
+    
+   
+    @Override
+    public void onResume() {
+        super.onResume(); 
+        uiHelper.onResume();
+       
+       //Log.e("check","2");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        uiHelper.onPause();
+        
+        //when move on other activity,close this activity
+      //  Session session = Session.getActiveSession();
+        //if(session != null && session.isOpened()) {
+    		 
+     	//	}
+       
+       // Log.e("check","3");
+      
+    }
+    
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        uiHelper.onActivityResult(requestCode, resultCode, data);
+        //Log.e("check","4");
+    }
+    
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+    	super.onSaveInstanceState(outState);
+    	outState.putBoolean(PENDING_PUBLISH_KEY, pendingPublishReauthorization);
+    	uiHelper.onSaveInstanceState(outState);
+    	// Log.e("check","5");
+    }
+   
+    @Override
+	public void onDestroy() {
+		super.onDestroy();
+		 uiHelper.onDestroy();
+		 this.unregisterReceiver(this._refreshReceiver);
+	}
+	
+   
+}
+	
+	
+
