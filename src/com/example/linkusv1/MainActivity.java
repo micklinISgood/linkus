@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,10 +21,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 
@@ -69,24 +79,54 @@ public class MainActivity extends Activity {
         
  
         //read permissions with login button
-			
+	        final Button button = (Button) findViewById(R.id.login_button);
+	        button.setOnClickListener(new View.OnClickListener() {
+	            public void onClick(View v) {
+	            	new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
+	        		
+	            }
+	        });
+	        
+	        EditText editText = (EditText) findViewById(R.id.fb_id);
+	        editText.addTextChangedListener(new TextWatcher() {
+
+	            public void afterTextChanged(Editable s) {
+	            	Log.e("check",s.toString());
+	            	if(s.length()>0){
+	            		 JsonObject value = Json.createObjectBuilder()
+	            			     .add("id", s.toString()).build();
+	            		 Editor editor = linkusdata.edit();
+	                	 editor.putString("Id",s.toString());
+	                	 editor.putString("userJson",value.toString());
+	                     editor.commit();
+	            		 
+	            		button.setEnabled(true); 
+	            	}
+	            	else{
+	            		button.setEnabled(false); 
+	            	}
+ 
+
+	            }
+
+	            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+	            public void onTextChanged(CharSequence s, int start, int before, int count) {
+	            	
+	            }
+	         });
      	linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
      	if(linkusdata.getString("Id", "").length()>0){
-     		//login
+     		if(!linkusdata.getString("userJson", "").equals("")){
+     			new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
+     			button.setVisibility(View.INVISIBLE);
+     			editText.setVisibility(View.INVISIBLE);
+     		}
          }
+     	
+     
       
-        EditText editText = (EditText) findViewById(R.id.fb_id);
-//        editText. .setOnEditorActionListener(new OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                boolean handled = false;
-//                if (actionId == EditorInfo.IME_ACTION_SEND) {
-//                    sendMessage();
-//                    handled = true;
-//                }
-//                return handled;
-//            }
-//        });
+     
 
 
       Log.e("check","0");
@@ -101,6 +141,12 @@ public class MainActivity extends Activity {
     	ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 		if (networkInfo != null && networkInfo.isConnected()) {
+			linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+	     	if(linkusdata.getString("Id", "").length()>0){
+	     		if(!linkusdata.getString("userJson", "").equals("")){
+	     			new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
+	    		}
+	         }
 //    	Session session = Session.getActiveSession();
 //        //when in login state without button
 //    	if(session != null && session.isOpened()) {
