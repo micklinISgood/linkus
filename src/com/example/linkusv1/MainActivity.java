@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import javax.json.Json;
-import javax.json.JsonObject;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -82,19 +81,25 @@ public class MainActivity extends Activity {
 	        final Button button = (Button) findViewById(R.id.login_button);
 	        button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-	            	new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
+                	new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
 	        		
 	            }
 	        });
-	        
+	    	
 	        EditText editText = (EditText) findViewById(R.id.fb_id);
 	        editText.addTextChangedListener(new TextWatcher() {
 
 	            public void afterTextChanged(Editable s) {
 	            	Log.e("check",s.toString());
 	            	if(s.length()>0){
-	            		 JsonObject value = Json.createObjectBuilder()
-	            			     .add("id", s.toString()).build();
+	            		JSONObject value = new JSONObject();
+	            		
+	            		 try {
+							value.put("id", s.toString());
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 	            		 Editor editor = linkusdata.edit();
 	                	 editor.putString("Id",s.toString());
 	                	 editor.putString("userJson",value.toString());
@@ -109,20 +114,21 @@ public class MainActivity extends Activity {
 
 	            }
 
-	            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+	            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+	            	
+	            	
+	            }
 
 	            public void onTextChanged(CharSequence s, int start, int before, int count) {
 	            	
 	            }
 	         });
-     	linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-     	if(linkusdata.getString("Id", "").length()>0){
-     		if(!linkusdata.getString("userJson", "").equals("")){
-     			new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
-     			button.setVisibility(View.INVISIBLE);
-     			editText.setVisibility(View.INVISIBLE);
-     		}
-         }
+    
+	        linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        	if(linkusdata.getString("Id", "").length()>0){
+  	     		
+        		editText.setText(linkusdata.getString("Id", ""));
+	         }
      	
      
       
@@ -141,12 +147,12 @@ public class MainActivity extends Activity {
     	ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 		if (networkInfo != null && networkInfo.isConnected()) {
-			linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-	     	if(linkusdata.getString("Id", "").length()>0){
-	     		if(!linkusdata.getString("userJson", "").equals("")){
-	     			new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
-	    		}
-	         }
+//		 	linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+//	     	if(linkusdata.getString("Id", "").length()>0){
+////	     		new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
+//	     		setContentView(R.layout.splash);
+//	     		
+//	         }
 //    	Session session = Session.getActiveSession();
 //        //when in login state without button
 //    	if(session != null && session.isOpened()) {
