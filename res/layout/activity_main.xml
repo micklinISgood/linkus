@@ -17,13 +17,18 @@
     
    
       
-        
-        <com.facebook.widget.LoginButton
+        <EditText
+    	android:id="@+id/fb_id"
+   		android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+       	android:hint="@string/enter_fb_id"
+    	android:inputType="number"
+    	android:imeActionLabel="@string/Go" />
+      <!--   <Button
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom"
-        />
+        android:layout_gravity="center|bottom"/> -->
         <ImageView
         android:id="@+id/logo"
         android:layout_width="200dip"

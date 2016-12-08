@@ -22,13 +22,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.facebook.HttpMethod;
-import com.facebook.Request;
-import com.facebook.RequestAsyncTask;
-import com.facebook.Response;
-import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.UiLifecycleHelper;
+
 import com.skyhookwireless.wps.WPSAuthentication;
 import com.skyhookwireless.wps.WPSContinuation;
 import com.skyhookwireless.wps.WPSLocation;

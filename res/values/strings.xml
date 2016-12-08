@@ -7,4 +7,7 @@
     
     <string name="description">logo</string>
     
+    <string name="enter_fb_id">Enter your facebook id</string>
+    <string name="Go">Go</string>
+    
 </resources>
