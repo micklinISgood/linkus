@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import gov.nasa.jpf.annotation.Checkpoint;
 
 
 import org.json.JSONException;
@@ -46,6 +47,7 @@ public class MainActivity extends Activity {
 	//facebook login callback setting and onComplete function
  
 
+	
 	private BroadcastReceiver _refreshReceiver = new BroadcastReceiver(){
 		  
 		  @Override public void onReceive(Context context, Intent intent) {
@@ -80,6 +82,7 @@ public class MainActivity extends Activity {
         //read permissions with login button
 	        final Button button = (Button) findViewById(R.id.login_button);
 	        button.setOnClickListener(new View.OnClickListener() {
+	        	@Checkpoint("Login") 
 	            public void onClick(View v) {
                 	new UploadThread(linkusdata.getString("userJson", ""),MainActivity.this.getApplicationContext()).execute();
 	        		

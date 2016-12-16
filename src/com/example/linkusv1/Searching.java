@@ -3,6 +3,7 @@ package com.example.linkusv1;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import gov.nasa.jpf.annotation.Checkpoint;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +22,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-
+import gov.nasa.jpf.annotation.Checkpoint;
 
 import com.skyhookwireless.wps.WPSAuthentication;
 import com.skyhookwireless.wps.WPSContinuation;
@@ -66,6 +67,7 @@ public class Searching extends Activity {
 		super.onStart();
 		
 	}
+	@Checkpoint("Service start")
 	public void onResume() {
 		super.onResume();
 		

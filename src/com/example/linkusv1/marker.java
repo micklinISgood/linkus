@@ -1,5 +1,6 @@
 package com.example.linkusv1;
 
+import gov.nasa.jpf.annotation.Checkpoint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -47,7 +48,7 @@ public class marker extends Activity {
 	  Log.e("receiver", "closed by broadcast");
 	
 	  } };
-	 
+	@Checkpoint("creatMarker")  
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.mContext = getApplicationContext();

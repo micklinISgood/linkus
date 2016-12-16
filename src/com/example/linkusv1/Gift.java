@@ -1,5 +1,7 @@
 package com.example.linkusv1;
 
+import gov.nasa.jpf.annotation.Checkpoint;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -33,7 +35,7 @@ public class Gift extends Activity {
 
 		
 	
-	 
+	@Checkpoint("GiftOnCreate") 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.mContext = getApplicationContext();
@@ -73,6 +75,7 @@ public class Gift extends Activity {
 		
 
 	}
+	@Checkpoint("GiftOnStart")
 	@Override
 	protected void onStart(){
 		super.onStart();
