@@ -6,17 +6,18 @@
 target = com.example.linkusv1.MainActivity
 
 #--- project path is used by jpf-android to find and parse the R.java and layout resources
-projectpath=${jpf-android}/../../linkus
+projectpath=${jpf-android}/../Applications/linkus
+
 
 #--- classpath setup (uncomment the first line if building with ant or second line if building with gradle)
-classpath+=${jpf-android}/../../linkus/bin/classes/;${jpf-android}/../../linkus/libs/;
+classpath+=${jpf-android}/../Applications/linkus/bin/classes/;${jpf-android}/../Applications/linkus/libs/;
 #classpath+=${jpf-android}/../Applications/Calculator/build/classes/release;${jpf-android}/../Applications/Calculator/libs/EvalEx-1.0.jar;
 
-sourcepath=${jpf-android}/../../linkus/src;
+sourcepath=${jpf-android}/../Applications/linkus/src;
 
 
 #--- android setup
-android.script=${jpf-android}/../../linkus/src/TestLinkus.es
+android.script=${jpf-android}/../Applications/linkus/src/TestLinkus.es
 android.checklist_enabled = false
 
 #--- enable coverage analyzer
