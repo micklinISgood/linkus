@@ -16,7 +16,7 @@ sourcepath=${jpf-android}/../../linkus/src;
 
 
 #--- android setup
-android.script=${config_path}/TestCalculator2.es
+android.script=${jpf-android}/../../linkus/src/TestLinkus.es
 android.checklist_enabled = false
 
 #--- enable coverage analyzer
