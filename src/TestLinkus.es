@@ -3,7 +3,7 @@ SECTION default {
 	startActivity(@startIntent)
 }
 
-SECTION com.example.calculator.SimpleActivity {
+SECTION com.example.linkusv1.MainActivity{
 	$login_button.onClick()
 	
 
