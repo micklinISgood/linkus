@@ -108,10 +108,19 @@ public class UploadlocThread extends AsyncTask<Void, Void, Integer> {
 				// extrace the return message
 				BufferedReader in = new BufferedReader(new InputStreamReader(
 						httpResponse.getEntity().getContent()));
-				String msg = in.readLine();
+				StringBuilder str = new StringBuilder();
+
+	            String line = null;
+
+	            while ((line =in.readLine()) != null) {
+	                str.append(line + "\n");
+	            }
+				String msg = str.toString();
+			
+			
 				in.close();
 				if (msg != null) {
-					//Log.w("upload service", msg);
+					Log.w("response", msg);
 
 					try {
 						JSONObject tmp = new JSONObject(msg);
