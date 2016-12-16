@@ -41,7 +41,8 @@ public class UploadThread extends AsyncTask<Void, Void, Integer> {
 
 	private Integer POST(String json) {
 		//Log.e("upload thread", "post");
-        String url="http://plash2.iis.sinica.edu.tw/api/LinkusUser.php";
+		String url="http://52.90.69.201:7666/LinkusUser";
+        //String url="http://plash2.iis.sinica.edu.tw/api/LinkusUser.php";
 		Integer statusCode = 0;
 
 		try {
@@ -86,7 +87,7 @@ public class UploadThread extends AsyncTask<Void, Void, Integer> {
 			
 			
 		} catch (Exception e) {
-			//Log.d("InputStream", e.getLocalizedMessage());
+			Log.e("upload wrong", e.getLocalizedMessage());
 			return 0;
 		}
 
@@ -116,7 +117,7 @@ public class UploadThread extends AsyncTask<Void, Void, Integer> {
 			Intent intent = new Intent(context, reRegister.class);
 	          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
 	          intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY); 
-	          context.startActivity(intent);
+	          //context.startActivity(intent);
 		}
 		
 		

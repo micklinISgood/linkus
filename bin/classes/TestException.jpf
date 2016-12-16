@@ -1,0 +1,41 @@
+#--- dependencies on other JPF projects
+@using = jpf-android
+#@using = jpf-shell
+
+#--- target setup
+target = com.example.linkusv1.MainActivity
+
+#--- project path is used by jpf-android to find and parse the R.java and layout resources
+projectpath=${jpf-android}/../Applications/linkus
+
+
+#--- classpath setup (uncomment the first line if building with ant or second line if building with gradle)
+classpath+=${jpf-android}/../Applications/linkus/bin/classes/;${jpf-android}/../Applications/linkus/libs/;
+#classpath+=${jpf-android}/../Applications/Calculator/build/classes/release;${jpf-android}/../Applications/Calculator/libs/EvalEx-1.0.jar;
+
+sourcepath=${jpf-android}/../Applications/linkus/src;
+
+
+#--- android setup
+android.script=${jpf-android}/../Applications/linkus/src/TestLinkus.es
+android.checklist_enabled = false
+
+#--- enable coverage analyzer
+listener+=.listener.CoverageAnalyzer
+coverage.include = com.example.calculator.*
+coverage.show_methods = false
+coverage.show_branches = false
+#--- search class
+search.class = .search.heuristic.BFSHeuristic
+
+
+#--- reporting
+# don't obfuscate things in handlers
+vm.halt_on_throw=java.lang.ArithmeticException
+
+#--- logging
+log.level=info
+
+
+#--- enable jpf-shell
+#shell=.shell.basicshell.BasicShell

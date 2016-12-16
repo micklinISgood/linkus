@@ -1,5 +1,6 @@
 package com.example.linkusv1;
 
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -25,10 +26,15 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.support.v4.app.LoaderManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -41,11 +47,21 @@ import com.skyhookwireless.wps.WPSReturnCode;
 import com.skyhookwireless.wps.WPSStreetAddressLookup;
 import com.skyhookwireless.wps.XPS;
 
-public class PhotoService extends Service {
+public class PhotoService extends Service implements LocationListener {
 
 	private static final String WPS_USERNAME ="MikeLin";// "plash";//;//"plash";
 	private static final String WPS_REALM ="Sinica";//"iis.sinica.edu.tw";// "Sinica";//"iis.sinica.edu.tw";
+	 // flag for GPS status
+	boolean isGPSEnabled = false;
+	 // Declaring a Location Manager
+	protected LocationManager locationManager;
+	  // The minimum distance to change Updates in meters
+	private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
 
+	   // The minimum time between updates in milliseconds
+	private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minute
+
+	Location location; 
 	private final static WPSAuthentication _auth = new WPSAuthentication(
 			WPS_USERNAME, WPS_REALM);
 	private Context mContext;
@@ -64,6 +80,8 @@ public class PhotoService extends Service {
 		mContext = getApplicationContext();
 		_xps = new XPS(mContext);
 		_xps.setRegistrationUser(_auth);
+		locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
+
 		//auth, timeIntervalInSeconds, XPS.EXACT_ACCURACY
 		//_xps.getPeriodicLocation(null,
 			//	WPSStreetAddressLookup.WPS_NO_STREET_ADDRESS_LOOKUP, 0, 0,
@@ -80,10 +98,48 @@ public class PhotoService extends Service {
             // IMPORTANT: We will continue to use the geofencing period of 1 hour because
             //            we only need to update the location once. By using the same callback
             //            we do not interrupt location updates for geofencing.
+		 // getting GPS status
+        isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
 		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 		if (networkInfo != null && networkInfo.isConnected()) {
-		_xps.getPeriodicLocation(null,WPSStreetAddressLookup.WPS_NO_STREET_ADDRESS_LOOKUP, 10000, 0,	_callback);
+			
+			locationManager.requestLocationUpdates(
+	                  LocationManager.NETWORK_PROVIDER,
+	                  MIN_TIME_BW_UPDATES,
+	                  MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+							
+	               Log.d("Network", "Network");
+	               if (locationManager != null) {
+	                  location = locationManager
+	                     .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+								
+	                  if (location != null) {
+	                	  uploadloc(location);
+	                  }
+	               }
+	               
+	               if (isGPSEnabled) {
+	                   if (location == null) {
+	                      locationManager.requestLocationUpdates(
+	                         LocationManager.GPS_PROVIDER,
+	                         MIN_TIME_BW_UPDATES,
+	                         MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+	    							
+	                      Log.d("GPS Enabled", "GPS Enabled");
+	                      if (locationManager != null) {
+	                         location = locationManager
+	                            .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+	    								
+	                         if (location != null) {
+	                        	 uploadloc(location);
+	                   
+	                         }
+	                      }
+	                   }
+	               }
+//		_xps.getPeriodicLocation(null,WPSStreetAddressLookup.WPS_NO_STREET_ADDRESS_LOOKUP, 10000, 0,	_callback);
 			//_xps.getXPSLocation(_auth, 10, XPS.EXACT_ACCURACY, _callback);
 		Log.e("service", "gogogo");
 		Toast.makeText(mContext, "Legen...Wait for it...", Toast.LENGTH_LONG).show();
@@ -101,6 +157,28 @@ public class PhotoService extends Service {
         return START_STICKY;
     }
 
+	
+	private void uploadloc(Location location){
+		linkusdata = PreferenceManager
+				.getDefaultSharedPreferences(mContext);
+		linkusdata
+				.edit()
+				.putString("lat",
+						String.valueOf(location.getLatitude()))
+				.putString("lng",
+						String.valueOf(location.getLongitude()))
+				.commit();
+//		Toast.makeText(mContext, String.valueOf(location.getLatitude())+String.valueOf(location.getLongitude()), Toast.LENGTH_LONG).show();
+		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isConnected()) {
+				new UploadlocThread(mContext).execute();	
+		
+			// start searching
+		}	
+		stopSelf();
+	}
+	
 	private final WPSPeriodicLocationCallback _callback = new WPSPeriodicLocationCallback() {
 		@Override
 		public void done() {
@@ -227,7 +305,9 @@ public class PhotoService extends Service {
 	private Integer POST() {
 		// Log.e("upload thread", "post");
 		linkusdata = PreferenceManager.getDefaultSharedPreferences(mContext);
-		String url = "http://plash2.iis.sinica.edu.tw/api/GetLinkusUser.php";
+//		String url = "http://plash2.iis.sinica.edu.tw/api/GetLinkusUser.php";
+		String url = "http://52.90.69.201:7666/GetLinkusUser";
+		
 		Integer statusCode = 0;
 		Log.e("input", linkusdata.getString("Id", ""));
 		Log.e("input", linkusdata.getString("lat", ""));
@@ -366,5 +446,25 @@ public class PhotoService extends Service {
 	
 		
 		return result;
+	}
+	@Override
+	public void onLocationChanged(Location location) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+		
 	}
 }
