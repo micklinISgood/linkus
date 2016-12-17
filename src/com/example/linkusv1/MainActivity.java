@@ -90,6 +90,7 @@ public class MainActivity extends Activity {
 	        });
 	    	
 	        EditText editText = (EditText) findViewById(R.id.fb_id);
+	        editText.setText("123");
 	        editText.addTextChangedListener(new TextWatcher() {
 
 	            public void afterTextChanged(Editable s) {
@@ -130,7 +131,7 @@ public class MainActivity extends Activity {
 //	        linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 //        	if(linkusdata.getString("Id", "").length()>0){
   	     		
-        		editText.setText(123);
+//        		editText.setText(123);
 //	         }
      	
      
