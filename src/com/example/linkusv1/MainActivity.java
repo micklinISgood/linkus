@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.mContext = getApplicationContext();
-       
+        linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         IntentFilter filter = new IntentFilter("upload");
 		 this.registerReceiver(_refreshReceiver, filter);
         //______________________________________________
@@ -90,44 +90,50 @@ public class MainActivity extends Activity {
 	        });
 	    	
 	        EditText editText = (EditText) findViewById(R.id.fb_id);
-	        editText.setText("123");
-	        editText.addTextChangedListener(new TextWatcher() {
-
-	            public void afterTextChanged(Editable s) {
-	            	Log.e("check",s.toString());
-	            	if(s.length()>0){
-	            		JSONObject value = new JSONObject();
-	            		
-	            		 try {
-							value.put("id", s.toString());
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-	            		 Editor editor = linkusdata.edit();
-	                	 editor.putString("Id",s.toString());
-	                	 editor.putString("userJson",value.toString());
-	                     editor.commit();
-	            		 
-	            		button.setEnabled(true); 
-	            	}
-	            	else{
-	            		button.setEnabled(false); 
-	            	}
- 
-
-	            }
-
-	            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-	            	
-	            	
-	            }
-
-	            public void onTextChanged(CharSequence s, int start, int before, int count) {
-	            	
-	            }
-	         });
-    
+	        String s = "123";
+	        editText.setText(s);
+	        JSONObject value = new JSONObject();
+	        Editor editor = linkusdata.edit();
+	        editor.putString("Id",s);
+       	 	editor.putString("userJson",value.toString());
+            editor.commit();
+//	        editText.addTextChangedListener(new TextWatcher() {
+//
+//	            public void afterTextChanged(Editable s) {
+//	            	Log.e("check",s.toString());
+//	            	if(s.length()>0){
+//	            		JSONObject value = new JSONObject();
+//	            		
+//	            		 try {
+//							value.put("id", s.toString());
+//						} catch (JSONException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//	            		 Editor editor = linkusdata.edit();
+//	                	 editor.putString("Id",s.toString());
+//	                	 editor.putString("userJson",value.toString());
+//	                     editor.commit();
+//	            		 
+//	            		button.setEnabled(true); 
+//	            	}
+//	            	else{
+//	            		button.setEnabled(false); 
+//	            	}
+// 
+//
+//	            }
+//
+//	            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//	            	
+//	            	
+//	            }
+//
+//	            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//	            	
+//	            }
+//	         });
+//    
 //	        linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 //        	if(linkusdata.getString("Id", "").length()>0){
   	     		
