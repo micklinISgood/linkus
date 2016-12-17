@@ -94,7 +94,7 @@ public class marker extends Activity {
 						   	righttini.setVisibility(View.VISIBLE);
 					   	}else{
 					   	 ImageView right00 = (ImageView) findViewById(R.id.right);
-						   	right00.setVisibility(View.INVISIBLE);
+//						   	right00.setVisibility(View.INVISIBLE);
 						   	}
 			        position =1;
 			        break;
@@ -330,13 +330,13 @@ public class marker extends Activity {
 									TextView mTextView = (TextView) findViewById(R.id.education);
 							        mTextView.setText(linkusdata.getString("ed1",""));
 							        ImageView right00 = (ImageView) findViewById(R.id.right);
-								   	right00.setVisibility(View.INVISIBLE);
+//								   	right00.setVisibility(View.INVISIBLE);
 									if(near0){
 									   	 ImageView leftini = (ImageView) findViewById(R.id.left);
 										   	leftini.setVisibility(View.VISIBLE);
 									   	}else{
 									   	 ImageView left00 = (ImageView) findViewById(R.id.left);
-										   	left00.setVisibility(View.INVISIBLE);
+//										   	left00.setVisibility(View.INVISIBLE);
 									   	}
 							        position =1;
 							        break;

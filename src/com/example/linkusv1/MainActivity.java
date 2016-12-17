@@ -127,11 +127,11 @@ public class MainActivity extends Activity {
 	            }
 	         });
     
-	        linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        	if(linkusdata.getString("Id", "").length()>0){
+//	        linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+//        	if(linkusdata.getString("Id", "").length()>0){
   	     		
-        		editText.setText(linkusdata.getString("Id", ""));
-	         }
+        		editText.setText(123);
+//	         }
      	
      
       
