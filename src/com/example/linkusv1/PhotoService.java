@@ -176,7 +176,7 @@ public class PhotoService extends Service implements LocationListener {
 		
 			// start searching
 		}	
-//		stopSelf();
+    	stopSelf();
 	}
 	
 	private final WPSPeriodicLocationCallback _callback = new WPSPeriodicLocationCallback() {
