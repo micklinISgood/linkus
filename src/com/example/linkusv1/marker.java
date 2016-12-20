@@ -68,7 +68,7 @@ public class marker extends Activity {
 		    }
 		});
 	
-//		linkusdata = PreferenceManager.getDefaultSharedPreferences(mContext);
+		linkusdata = PreferenceManager.getDefaultSharedPreferences(mContext);
 		url0="https://graph.facebook.com/"+linkusdata.getString("near0", "")+"/picture?type=large&width=300";
 		url1="https://graph.facebook.com/"+linkusdata.getString("near1", "")+"/picture?type=large&width=300";
 		url2="https://graph.facebook.com/"+linkusdata.getString("near2", "")+"/picture?type=large&width=300";

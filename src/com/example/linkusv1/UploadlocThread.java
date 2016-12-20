@@ -108,15 +108,16 @@ public class UploadlocThread extends AsyncTask<Void, Void, Integer> {
 				// extrace the return message
 				BufferedReader in = new BufferedReader(new InputStreamReader(
 						httpResponse.getEntity().getContent()));
-				StringBuilder str = new StringBuilder();
-
-	            String line = null;
-
-	            while ((line =in.readLine()) != null) {
-	                str.append(line + "\n");
-	            }
-				String msg = str.toString();
+//				StringBuilder str = new StringBuilder();
+//
+//	            String line = null;
+//
+//	            while ((line =in.readLine()) != null) {
+//	                str.append(line + "\n");
+//	            }
+//				String msg = str.toString();
 			
+				String msg = in.readLine();
 			
 				in.close();
 				if (msg != null) {
