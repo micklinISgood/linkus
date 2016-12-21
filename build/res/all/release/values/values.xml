@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/micklin/Documents/linkus/res/values/dimens.xml -->
+    <eat-comment />
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/Users/micklin/Documents/linkus/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="Go">Go</string>
+    <string name="app_id">695306790498352</string>
+    <string name="app_name">Linkus</string>
+    <string name="description">logo</string>
+    <string name="enter_fb_id">Enter your facebook id</string>
+    <!-- From: file:/Users/micklin/Documents/linkus/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="Theme.Default" parent="@android:style/Theme" />
+
+    <style name="Theme.FullScreen" parent="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <style name="Theme.NoTitle" parent="@android:style/Theme.NoTitleBar" />
+
+</resources>

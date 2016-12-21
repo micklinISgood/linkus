@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mike"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".LoginActivity" >
+
+    <ImageView
+        android:id="@+id/logo1"
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/description"
+        android:gravity="center|bottom"
+        android:scaleType="fitXY"
+        android:src="@drawable/linkus" />
+
+   
+
+  <ImageView
+        android:id="@+id/gift"
+       
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/description"
+        android:gravity="center"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:src="@drawable/gift" />
+
+
+    
+
+
+
+
+</RelativeLayout>
+
+
+<!-- From: file:/Users/micklin/Documents/linkus/res/layout/gift.xml -->

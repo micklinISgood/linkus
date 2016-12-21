@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mike"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".LoginActivity" >
+
+    <ImageView
+        android:id="@+id/logo1"
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/description"
+        android:gravity="center|bottom"
+        android:scaleType="fitXY"
+        android:src="@drawable/linkus" />
+
+    <ImageView
+        android:id="@+id/left"
+        
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/description"
+        android:gravity="left"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/left" />
+
+    <ImageView
+        android:id="@+id/right"
+       
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/description"
+        android:gravity="right"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/right" />
+
+    <ImageView
+        android:id="@+id/no"
+        
+        android:layout_alignBottom="@+id/logo1"
+        android:layout_toLeftOf="@id/logo1"
+        android:contentDescription="@string/description"
+        android:gravity="left"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/no" />
+
+    <ImageView
+        android:id="@+id/yes"
+       
+        android:layout_alignBottom="@+id/logo1"
+        android:layout_toRightOf="@id/logo1"
+        android:contentDescription="@string/description"
+        android:gravity="right"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/yes" /> 
+        
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/education"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dip"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/description"
+        android:gravity="center|top" />
+
+    <ImageView
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/logo1"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:contentDescription="@string/description"
+        android:gravity="center"
+        android:src="@drawable/magnifier" />
+
+    <TextView
+        android:id="@+id/education"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/search"
+        android:layout_centerHorizontal="true"
+        android:background="#20535252"
+        android:gravity="center|top"
+        android:lines="8"
+        android:text="\n\n\n"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    
+
+</RelativeLayout><!-- From: file:/Users/micklin/Documents/linkus/res/layout/evalue4.xml -->

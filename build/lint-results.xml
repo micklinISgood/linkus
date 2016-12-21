@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 25.2.3">
+
+    <issue
+        id="MissingRegistered"
+        severity="Error"
+        message="Class referenced in the manifest, com.facebook.LoginActivity, was not found in the project or the libraries"
+        category="Correctness"
+        priority="8"
+        summary="Ensures that classes referenced in the manifest are present in the project or libraries"
+        explanation="If a class is referenced in the manifest, it must also exist in the project (or in one of the libraries included by the project. This check helps uncover typos in registration names, or attempts to rename or move classes without updating the manifest file properly."
+        url="http://developer.android.com/guide/topics/manifest/manifest-intro.html"
+        urls="http://developer.android.com/guide/topics/manifest/manifest-intro.html"
+        errorLine1="        &lt;activity android:name=&quot;com.facebook.LoginActivity&quot; />"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/AndroidManifest.xml"
+            line="63"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="CutPasteId"
+        severity="Warning"
+        message="The id R.id.education has already been looked up in this method; possible cut &amp; paste error?"
+        category="Correctness"
+        priority="6"
+        summary="Looks for code cut &amp; paste mistakes in `findViewById()` calls"
+        explanation="This lint check looks for cases where you have cut &amp; pasted calls to `findViewById` but have forgotten to update the R.id field. It&apos;s possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut &amp; pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`."
+        errorLine1="     TextView mTextView2 = (TextView) findViewById(R.id.education);"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="130"
+            column="39"/>
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="88"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="CutPasteId"
+        severity="Warning"
+        message="The id R.id.right has already been looked up in this method; possible cut &amp; paste error?"
+        category="Correctness"
+        priority="6"
+        summary="Looks for code cut &amp; paste mistakes in `findViewById()` calls"
+        explanation="This lint check looks for cases where you have cut &amp; pasted calls to `findViewById` but have forgotten to update the R.id field. It&apos;s possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut &amp; pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`."
+        errorLine1="        ImageView righticon = (ImageView) findViewById(R.id.right);"
+        errorLine2="                                          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="134"
+            column="43"/>
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="93"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="CutPasteId"
+        severity="Warning"
+        message="The id R.id.left has already been looked up in this method; possible cut &amp; paste error?"
+        category="Correctness"
+        priority="6"
+        summary="Looks for code cut &amp; paste mistakes in `findViewById()` calls"
+        explanation="This lint check looks for cases where you have cut &amp; pasted calls to `findViewById` but have forgotten to update the R.id field. It&apos;s possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut &amp; pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`."
+        errorLine1="          ImageView lefticon = (ImageView) findViewById(R.id.left);"
+        errorLine2="                                           ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="140"
+            column="44"/>
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="90"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="CutPasteId"
+        severity="Warning"
+        message="The id R.id.right has already been looked up in this method; possible cut &amp; paste error?"
+        category="Correctness"
+        priority="6"
+        summary="Looks for code cut &amp; paste mistakes in `findViewById()` calls"
+        explanation="This lint check looks for cases where you have cut &amp; pasted calls to `findViewById` but have forgotten to update the R.id field. It&apos;s possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut &amp; pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`."
+        errorLine1="          ImageView righticon = (ImageView) findViewById(R.id.right);"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="142"
+            column="45"/>
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="93"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="CutPasteId"
+        severity="Warning"
+        message="The id R.id.education has already been looked up in this method; possible cut &amp; paste error?"
+        category="Correctness"
+        priority="6"
+        summary="Looks for code cut &amp; paste mistakes in `findViewById()` calls"
+        explanation="This lint check looks for cases where you have cut &amp; pasted calls to `findViewById` but have forgotten to update the R.id field. It&apos;s possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut &amp; pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`."
+        errorLine1="     TextView mTextView2 = (TextView) findViewById(R.id.education);"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="184"
+            column="39"/>
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="162"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="CutPasteId"
+        severity="Warning"
+        message="The id R.id.left has already been looked up in this method; possible cut &amp; paste error?"
+        category="Correctness"
+        priority="6"
+        summary="Looks for code cut &amp; paste mistakes in `findViewById()` calls"
+        explanation="This lint check looks for cases where you have cut &amp; pasted calls to `findViewById` but have forgotten to update the R.id field. It&apos;s possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut &amp; pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`."
+        errorLine1="          ImageView lefttini = (ImageView) findViewById(R.id.left);"
+        errorLine2="                                           ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="189"
+            column="44"/>
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="166"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="CutPasteId"
+        severity="Warning"
+        message="The id R.id.left has already been looked up in this method; possible cut &amp; paste error?"
+        category="Correctness"
+        priority="6"
+        summary="Looks for code cut &amp; paste mistakes in `findViewById()` calls"
+        explanation="This lint check looks for cases where you have cut &amp; pasted calls to `findViewById` but have forgotten to update the R.id field. It&apos;s possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut &amp; pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`."
+        errorLine1="          ImageView left00 = (ImageView) findViewById(R.id.left);"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="192"
+            column="42"/>
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="166"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="CutPasteId"
+        severity="Warning"
+        message="The id R.id.left has already been looked up in this method; possible cut &amp; paste error?"
+        category="Correctness"
+        priority="6"
+        summary="Looks for code cut &amp; paste mistakes in `findViewById()` calls"
+        explanation="This lint check looks for cases where you have cut &amp; pasted calls to `findViewById` but have forgotten to update the R.id field. It&apos;s possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut &amp; pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`."
+        errorLine1="          ImageView left00 = (ImageView) findViewById(R.id.left);"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="207"
+            column="42"/>
+        <location
+            file="/Users/micklin/Documents/linkus/src/com/example/linkusv1/marker.java"
+            line="166"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Checks that the manifest specifies a targetSdkVersion that is recent"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.
+
+To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        url="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        urls="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="    &lt;uses-sdk"
+        errorLine2="    ^">
+        <location
+            file="/Users/micklin/Documents/linkus/AndroidManifest.xml"
+            line="7"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="Old buildToolsVersion; recommended version is 19.1.0 or later"
+        category="Correctness"
+        priority="4"
+        summary="Looks for old or obsolete Gradle library dependencies"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    buildToolsVersion &quot;19.0.2&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/build.gradle"
+            line="17"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This minSdkVersion value (8) is not used; it is always overridden by the value specified in the Gradle build script (15)"
+        category="Correctness"
+        priority="4"
+        summary="Looks for values specified in the manifest file which are overridden by values in Gradle"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="        android:minSdkVersion=&quot;8&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/AndroidManifest.xml"
+            line="8"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="GradleOverrides"
+        severity="Warning"
+        message="This targetSdkVersion value (17) is not used; it is always overridden by the value specified in the Gradle build script (19)"
+        category="Correctness"
+        priority="4"
+        summary="Looks for values specified in the manifest file which are overridden by values in Gradle"
+        explanation="The value of (for example) `minSdkVersion` is only used if it is not specified in the `build.gradle` build scripts. When specified in the Gradle build scripts, the manifest value is ignored and can be misleading, so should be removed to avoid ambiguity."
+        errorLine1="        android:targetSdkVersion=&quot;17&quot; />"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/AndroidManifest.xml"
+            line="9"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background @drawable/mike with a theme that also paints a background (inferred theme is @style/Theme_NoTitle)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="    android:background=&quot;@drawable/mike&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/evalue4.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background @drawable/mike with a theme that also paints a background (inferred theme is @style/Theme_NoTitle)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="    android:background=&quot;@drawable/mike&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/gift.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background @drawable/mike with a theme that also paints a background (inferred theme is @style/Theme_NoTitle)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="    android:background=&quot;@drawable/mike&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/nouser.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background @drawable/mike with a theme that also paints a background (inferred theme is @style/Theme_NoTitle)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="    android:background=&quot;@drawable/mike&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/searching.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background @drawable/mike with a theme that also paints a background (inferred theme is @style/Theme_NoTitle)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="    android:background=&quot;@drawable/mike&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/splash.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background @drawable/mike with a theme that also paints a background (inferred theme is @style/Theme_NoTitle)"
+        category="Performance"
+        priority="3"
+        summary="Looks for overdraw issues (where a view is painted only to be fully painted over)"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="    android:background=&quot;@drawable/mike&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/wifi.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.drawable.button_border appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/button_border.xml"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        severity="Warning"
+        message="This LinearLayout layout or its LinearLayout parent is useless"
+        category="Performance"
+        priority="2"
+        summary="Checks whether a parent layout can be removed."
+        explanation="A layout with children that has no siblings, is not a scrollview or a root layout, and does not have a background, can be removed and have its children moved directly into the parent for a flatter and more efficient layout hierarchy."
+        errorLine1="   &lt;LinearLayout"
+        errorLine2="   ^"
+        quickfix="adt">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/activity_main.xml"
+            line="11"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        severity="Warning"
+        message="This LinearLayout layout or its LinearLayout parent is useless; transfer the background attribute to the other view"
+        category="Performance"
+        priority="2"
+        summary="Checks whether a parent layout can be removed."
+        explanation="A layout with children that has no siblings, is not a scrollview or a root layout, and does not have a background, can be removed and have its children moved directly into the parent for a flatter and more efficient layout hierarchy."
+        errorLine1="     &lt;LinearLayout"
+        errorLine2="     ^"
+        quickfix="adt">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/splash.xml"
+            line="10"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="IconDipSize"
+        severity="Warning"
+        message="The image ic_launcher.png varies significantly in its density-independent (dip) size across the various density versions: drawable-ldpi/ic_launcher.png: 96x96 dp (72x72 px), drawable-xhdpi/ic_launcher.png: 48x48 dp (96x96 px), drawable-hdpi/ic_launcher.png: 48x48 dp (72x72 px), drawable-mdpi/ic_launcher.png: 48x48 dp (48x48 px)"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that icons across densities provide roughly the same density-independent size"
+        explanation="Checks the all icons which are provided in multiple densities, all compute to roughly the same density-independent pixel (`dip`) size. This catches errors where images are either placed in the wrong folder, or icons are changed to new sizes but some folders are forgotten.">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable-mdpi/ic_launcher.png"/>
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable-hdpi/ic_launcher.png"/>
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable-xhdpi/ic_launcher.png"/>
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable-ldpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The ic_launcher.png icon has identical contents in the following configuration folders: drawable-hdpi, drawable-ldpi"
+        category="Usability:Icons"
+        priority="5"
+        summary="Finds icons that have identical bitmaps across various configuration parameters"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable-ldpi/ic_launcher.png"/>
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable-hdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/gift.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/gift.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/head.jpg in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/head.jpg"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/left.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/left.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/linkus.jpg in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/linkus.jpg"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/magnifier.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/magnifier.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/mike.jpg in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/mike.jpg"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/no.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/no.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/right.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/right.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/wifi.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/wifi.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable res/drawable/yes.png in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Ensures that images are not defined in the density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/micklin/Documents/linkus/res/drawable/yes.png"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="[I18N] Hardcoded string &quot;\n\n\n&quot;, should use @string resource"
+        category="Internationalization"
+        priority="5"
+        summary="Looks for hardcoded text attributes which should be converted to resource lookup"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:
+
+* When creating configuration variations (for example for landscape or portrait)you have to repeat the actual text (and keep it up to date when making changes)
+
+* The application cannot be translated to other languages by just adding new translations for existing string resources.
+
+In Android Studio and Eclipse there are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="        android:text=&quot;\n\n\n&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/evalue4.xml"
+            line="104"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="[I18N] Hardcoded string &quot;Sorry,there are no potential friends.Please try again later.\nTo improve everyone&apos;s experience,please invite your friends to try Linkus.\n\nContact Me:\nwww.facebook.com/Mike0Lin&quot;, should use @string resource"
+        category="Internationalization"
+        priority="5"
+        summary="Looks for hardcoded text attributes which should be converted to resource lookup"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:
+
+* When creating configuration variations (for example for landscape or portrait)you have to repeat the actual text (and keep it up to date when making changes)
+
+* The application cannot be translated to other languages by just adding new translations for existing string resources.
+
+In Android Studio and Eclipse there are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="        android:text=&quot;Sorry,there are no potential friends.Please try again later.\nTo improve everyone&apos;s experience,please invite your friends to try Linkus.\n\nContact Me:\nwww.facebook.com/Mike0Lin&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/micklin/Documents/linkus/res/layout/nouser.xml"
+            line="47"
+            column="9"/>
+    </issue>
+
+</issues>

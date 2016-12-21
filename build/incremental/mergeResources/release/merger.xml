@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/micklin/Documents/linkus/res" >
+            <file
+                name="button_border"
+                path="/Users/micklin/Documents/linkus/res/drawable/button_border.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="gift"
+                path="/Users/micklin/Documents/linkus/res/drawable/gift.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="head"
+                path="/Users/micklin/Documents/linkus/res/drawable/head.jpg"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="left"
+                path="/Users/micklin/Documents/linkus/res/drawable/left.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="linkus"
+                path="/Users/micklin/Documents/linkus/res/drawable/linkus.jpg"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="magnifier"
+                path="/Users/micklin/Documents/linkus/res/drawable/magnifier.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="mike"
+                path="/Users/micklin/Documents/linkus/res/drawable/mike.jpg"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="no"
+                path="/Users/micklin/Documents/linkus/res/drawable/no.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="right"
+                path="/Users/micklin/Documents/linkus/res/drawable/right.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="wifi"
+                path="/Users/micklin/Documents/linkus/res/drawable/wifi.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="yes"
+                path="/Users/micklin/Documents/linkus/res/drawable/yes.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="gift"
+                path="/Users/micklin/Documents/linkus/res/drawable-hdpi/gift.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/micklin/Documents/linkus/res/drawable-hdpi/ic_launcher.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="left"
+                path="/Users/micklin/Documents/linkus/res/drawable-hdpi/left.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="magnifier"
+                path="/Users/micklin/Documents/linkus/res/drawable-hdpi/magnifier.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="no"
+                path="/Users/micklin/Documents/linkus/res/drawable-hdpi/no.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="right"
+                path="/Users/micklin/Documents/linkus/res/drawable-hdpi/right.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="wifi"
+                path="/Users/micklin/Documents/linkus/res/drawable-hdpi/wifi.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="yes"
+                path="/Users/micklin/Documents/linkus/res/drawable-hdpi/yes.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="gift"
+                path="/Users/micklin/Documents/linkus/res/drawable-ldpi/gift.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/micklin/Documents/linkus/res/drawable-ldpi/ic_launcher.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="left"
+                path="/Users/micklin/Documents/linkus/res/drawable-ldpi/left.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="magnifier"
+                path="/Users/micklin/Documents/linkus/res/drawable-ldpi/magnifier.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="no"
+                path="/Users/micklin/Documents/linkus/res/drawable-ldpi/no.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="right"
+                path="/Users/micklin/Documents/linkus/res/drawable-ldpi/right.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="wifi"
+                path="/Users/micklin/Documents/linkus/res/drawable-ldpi/wifi.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="yes"
+                path="/Users/micklin/Documents/linkus/res/drawable-ldpi/yes.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="gift"
+                path="/Users/micklin/Documents/linkus/res/drawable-mdpi/gift.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/micklin/Documents/linkus/res/drawable-mdpi/ic_launcher.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="left"
+                path="/Users/micklin/Documents/linkus/res/drawable-mdpi/left.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="magnifier"
+                path="/Users/micklin/Documents/linkus/res/drawable-mdpi/magnifier.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="no"
+                path="/Users/micklin/Documents/linkus/res/drawable-mdpi/no.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="right"
+                path="/Users/micklin/Documents/linkus/res/drawable-mdpi/right.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="wifi"
+                path="/Users/micklin/Documents/linkus/res/drawable-mdpi/wifi.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="yes"
+                path="/Users/micklin/Documents/linkus/res/drawable-mdpi/yes.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="gift"
+                path="/Users/micklin/Documents/linkus/res/drawable-xhdpi/gift.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/micklin/Documents/linkus/res/drawable-xhdpi/ic_launcher.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="left"
+                path="/Users/micklin/Documents/linkus/res/drawable-xhdpi/left.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="magnifier"
+                path="/Users/micklin/Documents/linkus/res/drawable-xhdpi/magnifier.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="no"
+                path="/Users/micklin/Documents/linkus/res/drawable-xhdpi/no.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="right"
+                path="/Users/micklin/Documents/linkus/res/drawable-xhdpi/right.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="wifi"
+                path="/Users/micklin/Documents/linkus/res/drawable-xhdpi/wifi.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="yes"
+                path="/Users/micklin/Documents/linkus/res/drawable-xhdpi/yes.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/micklin/Documents/linkus/res/drawable-xxhdpi/ic_launcher.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="activity_main"
+                path="/Users/micklin/Documents/linkus/res/layout/activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="evalue4"
+                path="/Users/micklin/Documents/linkus/res/layout/evalue4.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="gift"
+                path="/Users/micklin/Documents/linkus/res/layout/gift.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="nouser"
+                path="/Users/micklin/Documents/linkus/res/layout/nouser.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="searching"
+                path="/Users/micklin/Documents/linkus/res/layout/searching.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="splash"
+                path="/Users/micklin/Documents/linkus/res/layout/splash.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="wifi"
+                path="/Users/micklin/Documents/linkus/res/layout/wifi.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                path="/Users/micklin/Documents/linkus/res/values/dimens.xml"
+                qualifiers="" >
+                <dimen name="activity_vertical_margin" >16dp
+                </dimen>
+                <dimen name="activity_horizontal_margin" >16dp
+                </dimen>
+            </file>
+            <file
+                path="/Users/micklin/Documents/linkus/res/values/strings.xml"
+                qualifiers="" >
+                <string name="Go" >Go
+                </string>
+                <string name="description" >logo
+                </string>
+                <string name="app_name" >Linkus
+                </string>
+                <string name="app_id" >695306790498352
+                </string>
+                <string name="enter_fb_id" >Enter your facebook id
+                </string>
+            </file>
+            <file
+                path="/Users/micklin/Documents/linkus/res/values/styles.xml"
+                qualifiers="" >
+
+                <style
+                    name="Theme.FullScreen"
+                    parent="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+                <style
+                    name="Theme.Default"
+                    parent="@android:style/Theme" />
+
+                <style
+                    name="AppTheme"
+                    parent="AppBaseTheme" >
+
+                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                </style>
+
+                <style
+                    name="Theme.NoTitle"
+                    parent="@android:style/Theme.NoTitleBar" />
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Light" >
+
+                    <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+                    -->
+                </style>
+            </file>
+            <file
+                path="/Users/micklin/Documents/linkus/res/values-sw720dp-land/dimens.xml"
+                qualifiers="sw720dp-land" >
+                <dimen name="activity_horizontal_margin" >128dp
+                </dimen>
+            </file>
+        </source>
+        <source path="/Users/micklin/Documents/linkus/build/res/rs/release" />
+        <source path="/Users/micklin/Documents/linkus/build/res/generated/release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/micklin/Documents/linkus/src/release/res" />
+    </dataSet>
+
+</merger>
