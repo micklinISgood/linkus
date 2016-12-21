@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/mike"
+
     android:fadingEdge="horizontal"
     android:fadingEdgeLength="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
@@ -31,13 +31,13 @@
         android:layout_height="wrap_content"
         android:text="@string/Go"
         android:layout_gravity="center|bottom"/> 
-        <ImageView
+      <!--   <ImageView
         android:id="@+id/logo"
         android:layout_width="200dip"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
         android:contentDescription="@string/description"
         android:adjustViewBounds="true"
-        android:src="@drawable/linkus" />
+        android:src="@drawable/linkus" /> -->
     </LinearLayout>
 </LinearLayout>
