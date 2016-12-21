@@ -70,7 +70,12 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.mContext = getApplicationContext();
-        linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        try {
+        	linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        } catch(Exception e) {
+        	e.printStackTrace();
+        }
+        
         IntentFilter filter = new IntentFilter("upload");
 		 this.registerReceiver(_refreshReceiver, filter);
         //______________________________________________
