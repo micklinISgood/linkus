@@ -73,7 +73,10 @@ public class MainActivity extends Activity {
         try {
         	linkusdata = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         } catch(Exception e) {
+        	System.out.println("hahahahahha Crash!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        	System.out.println("start==================================================================");
         	e.printStackTrace();
+        	System.out.println("end==================================================================");
         }
         
         IntentFilter filter = new IntentFilter("upload");
