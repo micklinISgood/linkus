@@ -4,3 +4,13 @@ for getting potential friend’s Profile picture.
 Worked with facebook api to fetch user’s data and post potential 
 matched friend’s facebook to his/her wall privately. [frontend: Java]  
 https://play.google.com/store/apps/details?id=tw.plash.linkusv1
+
+## build
+#### vim local.properties
+```java
+sdk.dir=<yourSDK path>
+```
+```
+bash gradlew build
+```
+
